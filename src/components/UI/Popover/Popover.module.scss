@@ -1,0 +1,63 @@
+@keyframes fadeIn {
+  from {
+    display: none;
+    opacity: 0;
+  }
+
+  to {
+    display: block;
+    opacity: 1;
+  }
+}
+
+.popover_wrap {
+  width: fit-content;
+  height: fit-content;
+  transform: none !important;
+  animation-duration: 0.3s;
+  transition: linear;
+
+  :global(.ant-popover-inner) {
+    padding: 10px 15px;
+    border-top: 2px solid #02b2ee;
+    border-radius: 0px;
+    animation: fadeIn 0.2s !important;
+    transition: linear;
+  }
+
+  span {
+    font-family: GothamProLight;
+    position: relative;
+    text-decoration: none;
+    transition: color 0.5s;
+
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: -3px;
+      width: 0;
+      height: 1px;
+      background-color: #02b2ee;
+      transition: width 0.5s;
+    }
+
+    &:hover {
+      color: #02b2ee;
+      cursor: pointer;
+
+      &:after {
+        content: "";
+        width: 100%;
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        height: 1px;
+        background-color: #02b2ee;
+        transition: width 0.5s;
+      }
+    }
+  }
+}

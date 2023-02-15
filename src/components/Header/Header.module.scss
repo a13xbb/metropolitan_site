@@ -1,0 +1,86 @@
+.header {
+    padding: 20px 0;
+    font-family: 'GothamProBold';
+    font-size: 13px;
+
+
+    .wrapper {
+        max-width: 1180px !important;
+        height: 46px;
+        display: flex;
+        margin: 0 auto;
+
+        .logo {
+            width: 170px;
+            height: 46px;
+            margin-right: 15px;
+        }
+
+        .menu {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            &_item {
+                line-height: 27px;
+                transition-duration: 0.3s;
+
+                .flag {
+                    vertical-align: middle;
+                    margin-right: 5px;
+                    margin-bottom: 2px;
+                }
+
+                .down_outlined {
+                    font-size: 10px;
+                }
+
+                &:hover {
+                    cursor: pointer;
+                    color: #02b2ee;
+                }
+
+                &_with_popover {
+                    vertical-align: center;
+
+                    &::after {
+                        content: url('../../shared/assets/icons/chevron-down.svg');
+                    }
+
+                    &:hover {
+                        &::after {
+                            content: url('../../shared/assets/icons/chevron-up.svg');
+                        }
+                    }
+                }
+            }
+        }
+
+        .heart_btn {
+            align-self: center;
+            background-color: red;
+            border: none;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            margin-right: 5px;
+        }
+
+        .whatsapp_btn {
+            align-self: center;
+            background-color: rgb(16, 203, 16);
+            border: none;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .number {
+            align-self: center;
+            line-height: 40px;
+            font-size: 14px;
+        }
+    }
+}
