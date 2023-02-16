@@ -1,11 +1,11 @@
 .header {
     padding: 20px 0;
-    font-family: 'GothamProBold';
+    font-family: "GothamProBold";
     font-size: 13px;
-
 
     .wrapper {
         max-width: 1180px !important;
+        padding: 0 10px;
         height: 46px;
         display: flex;
         margin: 0 auto;
@@ -18,7 +18,7 @@
 
         .menu {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             align-items: center;
 
             &_item {
@@ -44,12 +44,12 @@
                     vertical-align: center;
 
                     &::after {
-                        content: url('../../shared/assets/icons/chevron-down.svg');
+                        content: url("../../shared/assets/icons/chevron-down.svg");
                     }
 
                     &:hover {
                         &::after {
-                            content: url('../../shared/assets/icons/chevron-up.svg');
+                            content: url("../../shared/assets/icons/chevron-up.svg");
                         }
                     }
                 }
@@ -58,7 +58,7 @@
 
         .heart_btn {
             align-self: center;
-            background-color: red;
+            background-color: #e74c3c;
             border: none;
             border-radius: 100%;
             width: 40px;
@@ -68,6 +68,7 @@
         }
 
         .whatsapp_btn {
+            position: relative;
             align-self: center;
             background-color: rgb(16, 203, 16);
             border: none;
@@ -75,6 +76,15 @@
             width: 40px;
             height: 40px;
             margin-right: 10px;
+
+            &:after {
+                content: url("../../shared/assets/icons/whatsapp.svg");
+                position: absolute;
+                left: 9px;
+                top: 9px;
+                height: 26px;
+                width: 22px;
+            }
         }
 
         .number {

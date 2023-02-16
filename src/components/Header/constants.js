@@ -73,3 +73,26 @@ export const menuItems = [
     ],
   },
 ];
+
+export const languages = [
+  {
+    src: "https://metropolitan.realestate/wp-content/plugins/sitepress-multilingual-cms/res/flags/ru.png",
+    alt: "flag",
+    language: "RU",
+  },
+  {
+    src: "https://metropolitan.realestate/wp-content/plugins/sitepress-multilingual-cms/res/flags/en.png",
+    alt: "flag",
+    language: "EN",
+  },
+  {
+    src: "https://metropolitan.realestate/wp-content/plugins/sitepress-multilingual-cms/res/flags/ar.png",
+    alt: "flag",
+    language: "AR",
+  },
+  {
+    src: "https://metropolitan.realestate/wp-content/plugins/sitepress-multilingual-cms/res/flags/de.png",
+    alt: "flag",
+    language: "DE",
+  },
+];

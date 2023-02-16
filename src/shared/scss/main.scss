@@ -18,6 +18,14 @@ body {
   line-height: 27px;
 }
 
+::-webkit-scrollbar {
+  width: 9px;
+
+  &-thumb {
+    background-color: #02b2ee;
+  }
+}
+
 // body,
 // button {
 //   // ! Если в каком-то теге переписывается шрифт, то добавьте его выше к body
