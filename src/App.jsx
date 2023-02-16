@@ -1,10 +1,11 @@
-import { Header } from "./components";
+import { Header, LegalServices } from "./components";
 
 function App() {
   return (
     <>
-      <Header></Header>
-      <main style={{ backgroundColor: "lightblue", height: "3000px" }}></main>
+      <Header />
+      <LegalServices />
+      <main style={{ backgroundColor: "lightpink", height: "3000px" }}></main>
     </>
   );
 }
