@@ -3,7 +3,13 @@ import { Popover as AntdPopover } from "antd";
 
 import styles from "./Popover.module.scss";
 
-export const Popover = ({ type = "links", children, items, ...rest }) => {
+export const Popover = ({
+  setLanguage,
+  type = "links",
+  children,
+  items,
+  ...rest
+}) => {
   return (
     <AntdPopover
       placement="bottomLeft"
@@ -20,7 +26,7 @@ export const Popover = ({ type = "links", children, items, ...rest }) => {
           );
         } else if (type === "languages") {
           return (
-            <p>
+            <p key={index} onClick={() => setLanguage(item.language)}>
               <span className={styles.underlined}>
                 <img src={item.src} alt={item.alt} className={styles.flag} />
                 <span>{item.language}</span>
