@@ -2,7 +2,7 @@
 
 .wrapper {
   position: absolute;
-  left: 920px;
+  right: 120px;
   top: 255px;
   padding: 30px;
   background-color: rgba(0, 0, 0, .5);
@@ -53,7 +53,7 @@
       transition: all .3s;
       cursor: pointer;
 
-      &_checked {
+      &[data-checked='false'] {
         &::after {
           content: "";
           background-color: $color-primary;
@@ -63,7 +63,22 @@
           left: 3.5px;
           top: 4px;
           transition: all .3s;
-          -webkit-transition: all .3s;
+          opacity: 0;
+        }
+      }
+
+
+      &[data-checked='true'] {
+        &::after {
+          content: "";
+          background-color: $color-primary;
+          width: 8px;
+          height: 8px;
+          position: absolute;
+          left: 3.5px;
+          top: 4px;
+          transition: all .3s;
+          opacity: 1;
         }
       }
     }
@@ -84,19 +99,39 @@
     margin-bottom: -20px;
   }
 
-  :global .ant-checkbox-checked .ant-checkbox-inner {
-    background-color: red !important;
-    border-color: red !important;
-  }
-
   .submit_btn {
-    background-color: $color-primary;
+    z-index: 2;
+    position: relative;
     font-family: GothamProBold, sans-serif;
     font-size: 16px;
-    width: 300px;
     height: 46px;
     padding: 0 20px;
     border: none;
     border-radius: 0;
+    background-color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+    }
+
+    &::before {
+      background-color: #008ce4;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1;
+      transition: all 0.4s ease;
+      width: 0%;
+      height: 100%;
+    }
+
+    &:hover::before {
+      width: 100%;
+    }
+
+    div {
+      display: none;
+    }
   }
 }

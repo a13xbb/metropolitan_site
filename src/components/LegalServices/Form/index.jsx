@@ -57,10 +57,8 @@ export const RequestForm = (props) => {
         <Form.Item name="agree" valuePropName="checked">
           <div className={styles.checkbox_wrapper} onClick={toggleCheckBox}>
             <div
-              className={clsx(
-                styles.checkbox,
-                isCheckboxChecked && styles.checkbox_checked
-              )}
+              className={styles.checkbox}
+              data-checked={isCheckboxChecked}
             ></div>
             <span className={styles.text}>
               Я принимаю условия
