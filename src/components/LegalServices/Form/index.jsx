@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Button, Checkbox, Form, Input } from "antd";
 import { useState } from "react";
 import clsx from "clsx";
@@ -14,6 +15,8 @@ const onFinishFailed = (errorInfo) => {
 
 export const RequestForm = (props) => {
   let [isCheckboxChecked, setIsCheckboxChecked] = useState(true);
+  let [activeInput, setActiveInput] = useState("none"); //none | name | phone | email
+  console.log(activeInput);
 
   const toggleCheckBox = () => {
     setIsCheckboxChecked((isCheckboxChecked) => !isCheckboxChecked);
@@ -30,28 +33,37 @@ export const RequestForm = (props) => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item
-          name="username"
-          rules={[{ required: true, message: "Please input your username!" }]}
-          className={styles.form_item}
-        >
-          <Input placeholder="Имя*" className={styles.input} />
+        <Form.Item name="username" className={styles.form_item}>
+          <>
+            <span className={styles.label}>Имя*</span>
+            <Input
+              className={styles.input}
+              onClick={() => setActiveInput("name")}
+              onBlur={() => setActiveInput("none")}
+            />
+          </>
         </Form.Item>
 
-        <Form.Item
-          name="phoneNumber"
-          rules={[{ required: true, message: "Please input your password!" }]}
-          className={styles.form_item}
-        >
-          <Input placeholder="Телефон*" className={styles.input} />
+        <Form.Item name="phone" className={styles.form_item}>
+          <>
+            <span className={styles.label}>Телефон*</span>
+            <Input
+              className={styles.input}
+              onClick={() => setActiveInput("phone")}
+              onBlur={() => setActiveInput("none")}
+            />
+          </>
         </Form.Item>
 
-        <Form.Item
-          name="email"
-          rules={[{ required: false, message: "Please input your password!" }]}
-          className={styles.form_item}
-        >
-          <Input placeholder="E-Mail" className={styles.input} />
+        <Form.Item name="email" className={styles.form_item}>
+          <>
+            <span className={styles.label}>E-Mail</span>
+            <Input
+              className={styles.input}
+              onClick={() => setActiveInput("email")}
+              onBlur={() => setActiveInput("none")}
+            />
+          </>
         </Form.Item>
 
         <Form.Item name="agree" valuePropName="checked">
