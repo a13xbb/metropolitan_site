@@ -16,7 +16,30 @@ const onFinishFailed = (errorInfo) => {
 export const RequestForm = (props) => {
   let [isCheckboxChecked, setIsCheckboxChecked] = useState(true);
   let [activeInput, setActiveInput] = useState("none"); //none | name | phone | email
-  console.log(activeInput);
+  let [nameValue, setNameValue] = useState("");
+  let [phoneValue, setPhoneValue] = useState("");
+  let [emailValue, setEmailValue] = useState("");
+
+  const inputsData = [
+    {
+      name: "name",
+      placeholder: "Имя*",
+      value: nameValue,
+      onChange: (event) => setNameValue(event.target.value),
+    },
+    {
+      name: "phone",
+      placeholder: "Телефон*",
+      value: phoneValue,
+      onChange: (event) => setPhoneValue(event.target.value),
+    },
+    {
+      name: "email",
+      placeholder: "E-Mail",
+      value: emailValue,
+      onChange: (event) => setEmailValue(event.target.value),
+    },
+  ];
 
   const toggleCheckBox = () => {
     setIsCheckboxChecked((isCheckboxChecked) => !isCheckboxChecked);
@@ -33,38 +56,27 @@ export const RequestForm = (props) => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item name="username" className={styles.form_item}>
-          <>
-            <span className={styles.label}>Имя*</span>
-            <Input
-              className={styles.input}
-              onClick={() => setActiveInput("name")}
-              onBlur={() => setActiveInput("none")}
-            />
-          </>
-        </Form.Item>
-
-        <Form.Item name="phone" className={styles.form_item}>
-          <>
-            <span className={styles.label}>Телефон*</span>
-            <Input
-              className={styles.input}
-              onClick={() => setActiveInput("phone")}
-              onBlur={() => setActiveInput("none")}
-            />
-          </>
-        </Form.Item>
-
-        <Form.Item name="email" className={styles.form_item}>
-          <>
-            <span className={styles.label}>E-Mail</span>
-            <Input
-              className={styles.input}
-              onClick={() => setActiveInput("email")}
-              onBlur={() => setActiveInput("none")}
-            />
-          </>
-        </Form.Item>
+        {inputsData.map((item, index) => (
+          <Form.Item name={item.name} className={styles.form_item} key={index}>
+            <>
+              <span
+                className={clsx(
+                  styles.label,
+                  (activeInput === item.name || item.value != "") &&
+                    styles.label_active
+                )}
+              >
+                {item.placeholder}
+              </span>
+              <Input
+                className={styles.input}
+                onFocus={() => setActiveInput(item.name)}
+                onBlur={() => setActiveInput("none")}
+                onChange={item.onChange}
+              />
+            </>
+          </Form.Item>
+        ))}
 
         <Form.Item name="agree" valuePropName="checked">
           <div className={styles.checkbox_wrapper} onClick={toggleCheckBox}>
@@ -90,6 +102,11 @@ export const RequestForm = (props) => {
           </Button>
         </Form.Item>
       </Form>
+      <img
+        className={styles.wave_image}
+        src="https://metropolitan.realestate/wp-content/themes/framework/assets/images/PAttern3.svg"
+        alt=""
+      />
     </div>
   );
 };

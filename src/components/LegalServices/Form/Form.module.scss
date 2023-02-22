@@ -2,12 +2,19 @@
 
 .wrapper {
   position: absolute;
-  right: 120px;
-  top: 255px;
+  right: 5px;
+  top: 170px;
   padding: 30px;
   background-color: rgba(0, 0, 0, .5);
   width: 360px;
   height: 400px;
+
+  .wave_image {
+    position: absolute;
+    z-index: 1;
+    top: 60px;
+    left: 20px;
+  }
 
   h1 {
     font-family: GothamProBold, sans-serif;
@@ -20,15 +27,27 @@
   .form_item {
     margin-bottom: 15px;
     position: relative;
+    z-index: 2;
 
     .label {
       z-index: 1;
-      color: #9a9898 !important;
+      color: #9a9898;
+      margin-left: 4px;
       position: absolute;
       left: 15px;
       top: 8px;
-      font-size: 15px;
+      font-size: 16px;
       pointer-events: none;
+      transition-duration: 0.3s;
+
+      &_active {
+        transform: translateY(-19px);
+        background-color: $color-primary;
+        padding: 0 4px;
+        color: white;
+        font-size: 15px;
+        line-height: 15px;
+      }
     }
   }
 
@@ -40,21 +59,6 @@
     height: 40px;
     font-size: 16px;
     color: #9a9898;
-
-    &::placeholder {
-      color: #9a9898;
-    }
-
-    &:focus {
-
-      &::placeholder {
-        z-index: 5;
-        position: absolute;
-        color: white;
-        background-color: $color-primary;
-        bottom: 32px;
-      }
-    }
   }
 
   .checkbox_wrapper {

@@ -1,11 +1,15 @@
 @import '/src/shared/scss/variables';
 
 .wrapper {
+  background-image: url('https://metropolitan.realestate/wp-content/uploads/2020/12/difc.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
   .form_wrapper {
-    background-image: url('https://metropolitan.realestate/wp-content/uploads/2020/12/difc.jpg');
+    margin: 0 auto;
+    max-width: 1180px;
     height: 655px;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    position: relative;
   }
 }
