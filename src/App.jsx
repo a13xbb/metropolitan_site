@@ -5,7 +5,7 @@ function App() {
     <>
       <Header />
       <LegalServices />
-      <main style={{ backgroundColor: "lightpink", height: "3000px" }}></main>
+      <main style={{ backgroundColor: "white", height: "3000px" }}></main>
     </>
   );
 }
