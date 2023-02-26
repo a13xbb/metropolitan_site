@@ -15,6 +15,11 @@ export const Description = () => {
           в ОАЭ.
         </p>
       </div>
+      <img
+        className={styles.wavy_image}
+        src="https://metropolitan.realestate/wp-content/themes/framework/assets/images/vpat.svg"
+        alt=""
+      />
     </div>
   );
 };
