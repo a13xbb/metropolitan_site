@@ -15,7 +15,7 @@
 
     .blue_line {
       width: 81px;
-      height: 2px;
+      height: 2.5px;
       background-color: $color-primary;
       align-self: center;
     }
@@ -26,6 +26,7 @@
       line-height: 1.22;
       padding: 0 20px;
       white-space: nowrap;
+      margin-bottom: 4px;
       color: #333;
 
       @media only screen and (max-width: 900px) {
@@ -39,20 +40,8 @@
   }
 
   .cards_wrapper {
-    margin-top: 50px;
-    padding-top: 50px;
+    padding-top: 55px;
     padding-bottom: 30px;
-    background-image: url('https://metropolitan.realestate/wp-content/themes/framework/assets/images/dotbg.png');
-    background-repeat: repeat-y;
-    background-position: center;
-
-    @media (max-width: 1024px) {
-      background-image: url('https://metropolitan.realestate/wp-content/themes/framework/assets/images/dottedbg.png');
-    }
-
-    @media only screen and (max-width: 767px) {
-      background-image: url('	https://metropolitan.realestate/wp-content/themes/framework/assets/images/dottedbg-mob.png');
-    }
 
     .cards {
       display: flex;
@@ -65,6 +54,18 @@
           max-width: 33.333333%;
         }
       }
+    }
+  }
+
+  .text_block {
+    font-family: GothamProLight, sans-serif;
+    font-size: 18px;
+    max-width: 1160px;
+    width: 100%;
+    padding: 0 10px;
+
+    p {
+      margin-bottom: 16px;
     }
   }
 

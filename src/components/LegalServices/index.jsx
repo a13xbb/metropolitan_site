@@ -1,4 +1,4 @@
-import { RequestForm } from "./Form";
+import { RequestForm } from "../UI";
 import { Description } from "./Description";
 
 import styles from "./LegalServices.module.scss";

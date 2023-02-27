@@ -1,4 +1,13 @@
-import { Header, LegalServices, MetropolitanConsulting } from "./components";
+import {
+  BusinessSupport,
+  Header,
+  LegalServices,
+  MetropolitanConsulting,
+  ConsultationForm,
+} from "./components";
+import { RequestForm } from "./components/UI";
+
+import styles from "./App.module.scss";
 
 function App() {
   return (
@@ -6,6 +15,8 @@ function App() {
       <Header />
       <LegalServices />
       <MetropolitanConsulting />
+      <BusinessSupport />
+      <ConsultationForm />
       <main style={{ backgroundColor: "white", height: "3000px" }}></main>
     </>
   );

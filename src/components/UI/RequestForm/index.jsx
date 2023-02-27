@@ -13,7 +13,7 @@ const onFinishFailed = (errorInfo) => {
   console.log("Failed:", errorInfo);
 };
 
-export const RequestForm = (props) => {
+export const RequestForm = ({ className, title = "Оставить заявку" }) => {
   let [isCheckboxChecked, setIsCheckboxChecked] = useState(true);
   let [activeInput, setActiveInput] = useState("none"); //none | name | phone | email
   let [nameValue, setNameValue] = useState("");
@@ -46,8 +46,8 @@ export const RequestForm = (props) => {
   };
 
   return (
-    <div className={styles.wrapper}>
-      <h1>Оставить заявку</h1>
+    <div className={clsx(styles.wrapper, className)}>
+      <h1>{title}</h1>
       <Form
         name="basic"
         style={{ maxWidth: 600 }}
@@ -62,8 +62,11 @@ export const RequestForm = (props) => {
               <span
                 className={clsx(
                   styles.label,
+                  "global_form_label",
                   (activeInput === item.name || item.value != "") &&
-                    styles.label_active
+                    styles.label_active,
+                  (activeInput === item.name || item.value != "") &&
+                    "global_form_label_active"
                 )}
               >
                 {item.placeholder}
@@ -79,14 +82,26 @@ export const RequestForm = (props) => {
         ))}
 
         <Form.Item name="agree" valuePropName="checked">
-          <div className={styles.checkbox_wrapper} onClick={toggleCheckBox}>
+          <div
+            className={clsx(
+              styles.checkbox_wrapper,
+              "global_form_checkbox_wrapper"
+            )}
+            onClick={toggleCheckBox}
+          >
             <div
-              className={styles.checkbox}
+              className={clsx(styles.checkbox, "global_form_checkbox")}
               data-checked={isCheckboxChecked}
             ></div>
-            <span className={styles.text}>
-              Я принимаю условия
-              <br />
+            <span className={clsx(styles.text, "global_form_text")}>
+              <span
+                className={clsx(
+                  styles.text_first_line,
+                  "global_form_text_first_line"
+                )}
+              >
+                Я принимаю условия
+              </span>{" "}
               пользовательского соглашения и политики конфиденциальности
             </span>
           </div>
@@ -96,14 +111,14 @@ export const RequestForm = (props) => {
           <Button
             type="primary"
             htmlType="submit"
-            className={styles.submit_btn}
+            className={clsx(styles.submit_btn, "global_form_submit_btn")}
           >
             ПОЛУЧИТЬ КОНСУЛЬТАЦИЮ
           </Button>
         </Form.Item>
       </Form>
       <img
-        className={styles.wave_image}
+        className={clsx(styles.wave_image, "global_form_wave_image")}
         src="https://metropolitan.realestate/wp-content/themes/framework/assets/images/PAttern3.svg"
         alt=""
       />
